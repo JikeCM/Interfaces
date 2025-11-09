@@ -20,6 +20,6 @@ public class JuegoService {
         if (filtro == null || filtro.isBlank()) {
             return juegoRepositorio.findAll();
         }
-        return juegoRepositorio.buscarPorFiltro(filtro);
+        return juegoRepositorio.buscarPorFiltroNative(filtro);
     }
 }

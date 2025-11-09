@@ -9,11 +9,11 @@ import com.proyecto.dam.modelos.Juego;
 
 public interface JuegoRepositorio extends JpaRepository<Juego, Integer> {
 
-    @Query("SELECT j FROM Juego j WHERE " +
-           "LOWER(j.name) LIKE LOWER(CONCAT('%', :filtro, '%')) OR " +
-           "LOWER(j.platform) LIKE LOWER(CONCAT('%', :filtro, '%')) OR " +
-           "LOWER(j.genre) LIKE LOWER(CONCAT('%', :filtro, '%')) OR " +
-           "LOWER(j.publisher) LIKE LOWER(CONCAT('%', :filtro, '%')) OR " +
-           "CAST(j.rank AS string) LIKE CONCAT('%', :filtro, '%')")
-    List<Juego> buscarPorFiltro(String filtro);
+    @Query(value = "SELECT * FROM juegos j WHERE " +
+            "unaccent(lower(j.name)) LIKE unaccent(lower(concat('%', :filtro, '%'))) OR " +
+            "unaccent(lower(j.platform)) LIKE unaccent(lower(concat('%', :filtro, '%'))) OR " +
+            "unaccent(lower(j.genre)) LIKE unaccent(lower(concat('%', :filtro, '%'))) OR " +
+            "unaccent(lower(j.publisher)) LIKE unaccent(lower(concat('%', :filtro, '%')))", nativeQuery = true)
+    List<Juego> buscarPorFiltroNative(String filtro);
+
 }
