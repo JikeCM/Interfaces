@@ -21,7 +21,7 @@ public class NoticiaControlador {
                 "Elden Ring anuncia expansión",
                 "La esperada expansión de Elden Ring trae nuevos desafíos, jefes y áreas para explorar.",
                 "Imagenes/Elden-Ring.jpg",
-                "https://www.ign.com/articles/elden-ring-expansion-release-date"
+                "https://vandal.elespanol.com/noticias/ps5/elden-ring/102076#p-89"
         ));
 
         noticias.add(new Noticia(
