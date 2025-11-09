@@ -1,64 +1,264 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Buscador de Juegos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Juegos - GameZone</title>
+
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f8; }
-        h1 { text-align: center; color: #333; }
-        form { text-align: center; margin-bottom: 20px; }
-        input[type="text"] { width: 300px; padding: 8px; }
-        button { padding: 8px 16px; }
-        table { width: 100%; border-collapse: collapse; background: white; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
-        th { background-color: #007BFF; color: white; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
-        a { display: block; text-align: center; margin-top: 20px; color: #007BFF; text-decoration: none; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            background-image: url('Imagenes/fondo_negro.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        a {
+            text-decoration: none;
+            color: #00ffff;
+        }
+
+        a:hover {
+            color: #ff00ff;
+            transition: 0.3s;
+        }
+
+        header {
+            background-color: rgba(17, 17, 17, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            box-shadow: 0 0 15px #0ff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #0ff;
+            text-shadow: 0 0 10px #0ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            font-size: 1.5em;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: all 0.3s;
+        }
+
+        .menu-toggle:hover {
+            color: #ff00ff;
+            border-color: #ff00ff;
+            box-shadow: 0 0 8px #ff00ff;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #111, #0d0d0d);
+            box-shadow: 0 0 20px #0ff inset;
+        }
+
+        .intro h1 {
+            font-size: 2.5em;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        form {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #00ffff;
+            color: #111;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff00ff;
+            color: #fff;
+        }
+
+        table {
+            width: 95%;
+            margin: 0 auto 50px auto;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.7);
+            color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #00ffff;
+            color: #111;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        tr:hover {
+            background-color: rgba(255, 0, 255, 0.2);
+        }
+
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 15px;
+            color: #888;
+            font-size: 0.9em;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 800px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                background-color: #111;
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                box-shadow: 0 0 10px #0ff;
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            input[type="text"] {
+                width: 70%;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<h1>🎮 Buscador de Juegos</h1>
+    <header>
+        <div class="logo">🎮 GameZone</div>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        <nav>
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/noticias}">Noticias</a>
+            <a th:href="@{/categorias}">Categorías</a>
+            <a th:href="@{/contacto}">Contacto</a>
+        </nav>
+    </header>
 
-<form th:action="@{/buscador}" method="get">
-    <input type="text" name="filtro" th:value="${filtro}" placeholder="Buscar por nombre, género, plataforma o publisher...">
-    <button type="submit">Buscar</button>
-</form>
+    <section class="intro">
+        <h1>Buscador de Juegos</h1>
+        <p>Encuentra todos tus juegos favoritos por nombre, género, plataforma o publisher.</p>
+    </section>
 
-<table>
-    <thead>
-    <tr>
-        <th>Rank</th>
-        <th>Nombre</th>
-        <th>Plataforma</th>
-        <th>Año</th>
-        <th>Género</th>
-        <th>Publisher</th>
-        <th>NA Sales</th>
-        <th>EU Sales</th>
-        <th>JP Sales</th>
-        <th>Other Sales</th>
-        <th>Global Sales</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="j : ${juegos}">
-        <td th:text="${j.rank}"></td>
-        <td th:text="${j.name}"></td>
-        <td th:text="${j.platform}"></td>
-        <td th:text="${j.year}"></td>
-        <td th:text="${j.genre}"></td>
-        <td th:text="${j.publisher}"></td>
-        <td th:text="${j.naSales}"></td>
-        <td th:text="${j.euSales}"></td>
-        <td th:text="${j.jpSales}"></td>
-        <td th:text="${j.otherSales}"></td>
-        <td th:text="${j.globalSales}"></td>
-    </tr>
-    </tbody>
-</table>
+    <form th:action="@{/buscador}" method="get">
+        <input type="text" name="filtro" th:value="${filtro}" placeholder="Buscar por nombre, género, plataforma o publisher...">
+        <button type="submit">Buscar</button>
+    </form>
 
-<a th:href="@{/}">Volver al inicio</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Nombre</th>
+                <th>Plataforma</th>
+                <th>Año</th>
+                <th>Género</th>
+                <th>Publisher</th>
+                <th>NA Sales</th>
+                <th>EU Sales</th>
+                <th>JP Sales</th>
+                <th>Other Sales</th>
+                <th>Global Sales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="j : ${juegos}">
+                <td th:text="${j.rank}"></td>
+                <td th:text="${j.name}"></td>
+                <td th:text="${j.platform}"></td>
+                <td th:text="${j.year}"></td>
+                <td th:text="${j.genre}"></td>
+                <td th:text="${j.publisher}"></td>
+                <td th:text="${j.naSales}"></td>
+                <td th:text="${j.euSales}"></td>
+                <td th:text="${j.jpSales}"></td>
+                <td th:text="${j.otherSales}"></td>
+                <td th:text="${j.globalSales}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/}">Volver al inicio</a>
+
+    <footer>
+        © 2025 GameZone - Todos los derechos reservados.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggle = document.querySelector(".menu-toggle");
+            const nav = document.querySelector("header nav");
+
+            toggle.addEventListener("click", () => {
+                nav.classList.toggle("active");
+            });
+        });
+    </script>
 
 </body>
 </html>
