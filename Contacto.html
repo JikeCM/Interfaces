@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GameZone - Contacta con nosotros. Envíanos tus sugerencias, preguntas o colaboraciones.">
+  <title>GameZone - Contacto</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      background-image: url('Imagenes/fondo_negro.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    a {
+      text-decoration: none;
+      color: #00ffff;
+    }
+
+    a:hover {
+      color: #ff00ff;
+      transition: 0.3s;
+    }
+
+    /* Header */
+    header {
+      background-color: rgba(17, 17, 17, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      box-shadow: 0 0 15px #0ff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 2px solid #00ffff;
+      color: #00ffff;
+      font-size: 1.5em;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 5px 10px;
+      transition: all 0.3s;
+    }
+
+    .menu-toggle:hover {
+      color: #ff00ff;
+      border-color: #ff00ff;
+      box-shadow: 0 0 8px #ff00ff;
+    }
+
+    .lista {
+      position: relative;
+    }
+
+    .contenido-lista {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background-color: #111;
+      box-shadow: 0 0 10px #00ffff;
+      border-radius: 5px;
+      padding: 10px 0;
+      min-width: 150px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .contenido-lista a {
+      display: block;
+      padding: 8px 15px;
+      color: #00ffff;
+    }
+
+    .contenido-lista a:hover {
+      background-color: #111;
+      box-shadow: 0 0 10px #ff00ff inset;
+    }
+
+    .lista:hover .contenido-lista {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* --- Contacto --- */
+    .contacto {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(180deg, #111, #0d0d0d);
+      box-shadow: 0 0 20px #0ff inset;
+    }
+
+    .contacto h1 {
+      font-size: 2.8em;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      margin-bottom: 15px;
+    }
+
+    .contacto p {
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      color: #ccc;
+      font-size: 1.1em;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(17, 17, 17, 0.9);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffff;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #0ff;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #222;
+      border: 2px solid #00ffff;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1em;
+      transition: all 0.3s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #ff00ff;
+      outline: none;
+      box-shadow: 0 0 10px #ff00ff;
+    }
+
+    button {
+      background-color: #00ffff;
+      color: #111;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #ff00ff;
+      color: white;
+      box-shadow: 0 0 15px #ff00ff;
+    }
+
+    .mensaje-exito {
+      color: #00ff99;
+      margin-top: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 5px #00ff99;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #888;
+      font-size: 0.9em;
+      border-top: 1px solid #222;
+      margin-top: 50px;
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        box-shadow: 0 0 10px #0ff;
+        position: absolute;
+        top: 60px;
+        left: 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      header {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.4em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">🎮 GameZone</div>
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="#">Noticias</a>
+      <div class="lista">
+        <a href="#">Plataformas ▼</a>
+        <div class="contenido-lista">
+          <a href="#">PC</a>
+          <a href="#">PlayStation</a>
+          <a href="#">Xbox</a>
+          <a href="#">Nintendo</a>
+        </div>
+      </div>
+      <div class="lista">
+        <a href="#">Categorías ▼</a>
+        <div class="contenido-lista">
+          <a href="#">Acción</a>
+          <a href="#">RPG</a>
+          <a href="#">Indie</a>
+          <a href="#">Estrategia</a>
+        </div>
+      </div>
+      <a href="contacto.html" style="color:#ff00ff;">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="contacto">
+    <h1>📩 Contáctanos</h1>
+    <p>¿Tienes sugerencias, ideas o quieres colaborar con GameZone? Completa el siguiente formulario y te responderemos pronto.</p>
+
+    <form id="form-contacto">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+
+      <label for="asunto">Asunto</label>
+      <input type="text" id="asunto" name="asunto" placeholder="Motivo del mensaje" required>
+
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+      <button type="submit">Enviar mensaje</button>
+      <div id="estado-envio" class="mensaje-exito" style="display:none;">✅ ¡Mensaje enviado con éxito!</div>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 GameZone - Todos los derechos reservados.
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("header nav");
+
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+      });
+
+      const form = document.getElementById("form-contacto");
+      const estado = document.getElementById("estado-envio");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        estado.style.display = "block";
+        form.reset();
+        setTimeout(() => estado.style.display = "none", 4000);
+      });
+    });
+  </script>
+</body>
+</html>

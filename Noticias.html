@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Noticias</title>
+    <style>
+        /* --- Estilos generales --- */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            background-image: url('C:\\Users\\Jiakai\\Desktop\\fondo_negro.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        a {
+            text-decoration: none;
+            color: #00ffff;
+        }
+
+        a:hover {
+            color: #ff00ff;
+            transition: 0.3s;
+        }
+
+
+        header {
+            background-color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            box-shadow: 0 0 10px #0ff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-image: url('C:\\Users\\Jiakai\\Desktop\\fondo_negro.jpg');
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0ff;
+            text-shadow: 0 0 10px #0ff;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        /* Menú desplegable */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown>a {
+            padding: 8px 10px;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #111;
+            box-shadow: 0 0 10px #00ffff;
+            border-radius: 5px;
+            padding: 10px 0;
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 8px 15px;
+            color: #00ffff;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #111;
+            box-shadow: 0 0 10px #ff00ff inset;
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown-content:hover {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">🎮 GameZone</div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Noticias</a>
+            <div class="dropdown">
+                <a href="#">Plataformas ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">PC</a>
+                    <a href="#">PlayStation</a>
+                    <a href="#">Xbox</a>
+                    <a href="#">Nintendo</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#">Categorías ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Acción</a>
+                    <a href="#">RPG</a>
+                    <a href="#">Indie</a>
+                    <a href="#">Estrategia</a>
+                </div>
+            </div>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscador de Juegos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f6f8; }
+        h1 { text-align: center; color: #333; }
+        form { text-align: center; margin-bottom: 20px; }
+        input[type="text"] { width: 300px; padding: 8px; }
+        button { padding: 8px 16px; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        th { background-color: #007BFF; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        a { display: block; text-align: center; margin-top: 20px; color: #007BFF; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<h1>🎮 Buscador de Juegos</h1>
+
+<form th:action="@{/buscador}" method="get">
+    <input type="text" name="filtro" th:value="${filtro}" placeholder="Buscar por nombre, género, plataforma o publisher...">
+    <button type="submit">Buscar</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Rank</th>
+        <th>Nombre</th>
+        <th>Plataforma</th>
+        <th>Año</th>
+        <th>Género</th>
+        <th>Publisher</th>
+        <th>NA Sales</th>
+        <th>EU Sales</th>
+        <th>JP Sales</th>
+        <th>Other Sales</th>
+        <th>Global Sales</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="j : ${juegos}">
+        <td th:text="${j.rank}"></td>
+        <td th:text="${j.name}"></td>
+        <td th:text="${j.platform}"></td>
+        <td th:text="${j.year}"></td>
+        <td th:text="${j.genre}"></td>
+        <td th:text="${j.publisher}"></td>
+        <td th:text="${j.naSales}"></td>
+        <td th:text="${j.euSales}"></td>
+        <td th:text="${j.jpSales}"></td>
+        <td th:text="${j.otherSales}"></td>
+        <td th:text="${j.globalSales}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/}">Volver al inicio</a>
+
+</body>
+</html>
