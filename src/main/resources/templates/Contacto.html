@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="GameZone - Contacta con nosotros. Envíanos tus sugerencias, preguntas o colaboraciones.">
+  <meta name="description"
+    content="GameZone - Contacta con nosotros. Envíanos tus sugerencias, preguntas o colaboraciones.">
   <title>GameZone - Contacto</title>
 
   <style>
@@ -241,11 +242,13 @@
 <body>
   <header>
     <div class="logo">🎮 GameZone</div>
+
+    <!-- Botón de menú hamburguesa -->
     <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
     <nav>
       <a th:href="@{/}">Inicio</a>
-      <a href="#">Noticias</a>
+      <a th:href="@{/noticias}">Noticias</a>
       <div class="lista">
         <a href="#">Plataformas ▼</a>
         <div class="contenido-lista">
@@ -264,13 +267,15 @@
           <a href="#">Estrategia</a>
         </div>
       </div>
-      <a href="contacto.html" style="color:#ff00ff;">Contacto</a>
+      <a th:href="@{/contacto}">Contacto</a>
+      <a th:href="@{/buscador}">Buscador</a>
     </nav>
   </header>
 
   <section class="contacto">
     <h1>📩 Contáctanos</h1>
-    <p>¿Tienes sugerencias, ideas o quieres colaborar con GameZone? Completa el siguiente formulario y te responderemos pronto.</p>
+    <p>¿Tienes sugerencias, ideas o quieres colaborar con GameZone? Completa el siguiente formulario y te responderemos
+      pronto.</p>
 
     <form id="form-contacto">
       <label for="nombre">Nombre</label>
@@ -315,4 +320,5 @@
     });
   </script>
 </body>
+
 </html>

@@ -184,28 +184,33 @@
 
     <header>
         <div class="logo">🎮 GameZone</div>
+
+        <!-- Botón de menú hamburguesa -->
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
         <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Noticias</a>
-            <div class="dropdown">
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/noticias}">Noticias</a>
+            <div class="lista">
                 <a href="#">Plataformas ▼</a>
-                <div class="dropdown-content">
+                <div class="contenido-lista">
                     <a href="#">PC</a>
                     <a href="#">PlayStation</a>
                     <a href="#">Xbox</a>
                     <a href="#">Nintendo</a>
                 </div>
             </div>
-            <div class="dropdown">
+            <div class="lista">
                 <a href="#">Categorías ▼</a>
-                <div class="dropdown-content">
+                <div class="contenido-lista">
                     <a href="#">Acción</a>
                     <a href="#">RPG</a>
                     <a href="#">Indie</a>
                     <a href="#">Estrategia</a>
                 </div>
             </div>
-            <a href="#">Contacto</a>
+            <a th:href="@{/contacto}">Contacto</a>
+            <a th:href="@{/buscador}">Buscador</a>
         </nav>
     </header>
 

@@ -126,7 +126,8 @@
             overflow: hidden;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px;
             text-align: center;
         }
@@ -191,12 +192,33 @@
 
     <header>
         <div class="logo">🎮 GameZone</div>
+
+        <!-- Botón de menú hamburguesa -->
         <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
         <nav>
             <a th:href="@{/}">Inicio</a>
             <a th:href="@{/noticias}">Noticias</a>
-            <a th:href="@{/categorias}">Categorías</a>
+            <div class="lista">
+                <a href="#">Plataformas ▼</a>
+                <div class="contenido-lista">
+                    <a href="#">PC</a>
+                    <a href="#">PlayStation</a>
+                    <a href="#">Xbox</a>
+                    <a href="#">Nintendo</a>
+                </div>
+            </div>
+            <div class="lista">
+                <a href="#">Categorías ▼</a>
+                <div class="contenido-lista">
+                    <a href="#">Acción</a>
+                    <a href="#">RPG</a>
+                    <a href="#">Indie</a>
+                    <a href="#">Estrategia</a>
+                </div>
+            </div>
             <a th:href="@{/contacto}">Contacto</a>
+            <a th:href="@{/buscador}">Buscador</a>
         </nav>
     </header>
 
@@ -206,7 +228,8 @@
     </section>
 
     <form th:action="@{/buscador}" method="get">
-        <input type="text" name="filtro" th:value="${filtro}" placeholder="Buscar por nombre, género, plataforma o publisher...">
+        <input type="text" name="filtro" th:value="${filtro}"
+            placeholder="Buscar por nombre, género, plataforma o publisher...">
         <button type="submit">Buscar</button>
     </form>
 
@@ -261,4 +284,5 @@
     </script>
 
 </body>
+
 </html>
