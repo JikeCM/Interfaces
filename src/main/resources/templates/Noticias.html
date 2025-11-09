@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameZone - Noticias</title>
     <style>
-        /* --- Estilos generales --- */
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -28,7 +27,6 @@
             transition: 0.3s;
         }
 
-
         header {
             background-color: #111;
             display: flex;
@@ -39,7 +37,6 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-image: url('C:\\Users\\Jiakai\\Desktop\\fondo_negro.jpg');
         }
 
         .logo {
@@ -55,7 +52,6 @@
             align-items: center;
         }
 
-        /* Menú desplegable */
         .dropdown {
             position: relative;
         }
@@ -98,10 +94,94 @@
             visibility: visible;
             transform: translateY(0);
         }
+
+        /* --- Noticias --- */
+        .noticias-section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .noticias-section h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            margin-bottom: 40px;
+        }
+
+        .noticia {
+            display: flex;
+            gap: 20px;
+            background-color: rgba(17, 17, 17, 0.9);
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .noticia:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        .noticia img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .noticia .contenido {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .noticia .contenido h2 {
+            margin: 0 0 10px 0;
+            color: #0ff;
+        }
+
+        .noticia .contenido p {
+            margin: 0 0 15px 0;
+            color: #ccc;
+        }
+
+        .noticia .contenido a {
+            align-self: flex-start;
+            padding: 8px 15px;
+            background-color: #00ffff;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .noticia .contenido a:hover {
+            background-color: #ff00ff;
+            color: #fff;
+        }
+
+        @media (max-width: 800px) {
+            .noticia {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .noticia img {
+                width: 90%;
+                height: auto;
+            }
+
+            .noticia .contenido a {
+                align-self: center;
+            }
+        }
     </style>
 </head>
 
 <body>
+
     <header>
         <div class="logo">🎮 GameZone</div>
         <nav>
@@ -128,6 +208,20 @@
             <a href="#">Contacto</a>
         </nav>
     </header>
+
+    <section class="noticias-section">
+        <h1>NOTICIAS GAMING</h1>
+
+        <div class="noticia" th:each="n : ${noticias}">
+            <img th:src="${n.imagenUrl}" th:alt="${n.titulo}">
+            <div class="contenido">
+                <h2 th:text="${n.titulo}"></h2>
+                <p th:text="${n.descripcion}"></p>
+                <a th:href="${n.enlace}" target="_blank">Leer más</a>
+            </div>
+        </div>
+
+    </section>
 
 </body>
 
