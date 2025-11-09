@@ -8,7 +8,11 @@ public class HomeControlador {
 
     @GetMapping("/")
     public String inicio() {
-        return "inicio"; // templates/inicio.html
+        return "inicio"; // busca templates/inicio.html
     }
 
+    @GetMapping("/contacto")
+    public String contacto() {
+        return "contacto"; // busca templates/contacto.html
+    }
 }
