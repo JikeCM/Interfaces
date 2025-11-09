@@ -20,14 +20,14 @@ public class NoticiaControlador {
         noticias.add(new Noticia(
                 "Elden Ring anuncia expansión",
                 "La esperada expansión de Elden Ring trae nuevos desafíos, jefes y áreas para explorar.",
-                "Imagenes/eldenring.jpg",
+                "Imagenes/Elden-Ring.jpg",
                 "https://www.ign.com/articles/elden-ring-expansion-release-date"
         ));
 
         noticias.add(new Noticia(
                 "God of War: Ragnarok supera expectativas",
                 "Los jugadores y críticos elogian la narrativa y el combate del nuevo título de Kratos.",
-                "Imagenes/godofwar.jpg",
+                "Imagenes/gowr.jpg",
                 "https://www.ign.com/articles/god-of-war-ragnarok-review"
         ));
 

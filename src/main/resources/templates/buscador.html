@@ -27,6 +27,7 @@
             transition: 0.3s;
         }
 
+        /* --- Header --- */
         header {
             background-color: rgba(17, 17, 17, 0.95);
             display: flex;
@@ -68,6 +69,44 @@
             color: #ff00ff;
             border-color: #ff00ff;
             box-shadow: 0 0 8px #ff00ff;
+        }
+
+        /* Lista menu */
+        .lista {
+            position: relative;
+        }
+
+        .contenido-lista {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #111;
+            box-shadow: 0 0 10px #00ffff;
+            border-radius: 5px;
+            padding: 10px 0;
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .contenido-lista a {
+            display: block;
+            padding: 8px 15px;
+            color: #00ffff;
+        }
+
+        .contenido-lista a:hover {
+            background-color: #111;
+            box-shadow: 0 0 10px #ff00ff inset;
+        }
+
+        .lista:hover .contenido-lista {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
 
         .intro {
