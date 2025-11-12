@@ -1,0 +1,167 @@
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      background-image: url('fondo_negro.jpg'); /* Cambia a una ruta válida */
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    a {
+      text-decoration: none;
+      color: #00ffff;
+    }
+
+    a:hover {
+      color: #ff00ff;
+      transition: 0.3s;
+    }
+
+    header {
+      background-color: rgba(17, 17, 17, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      box-shadow: 0 0 15px #0ff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown>a {
+      padding: 8px 10px;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background-color: #111;
+      box-shadow: 0 0 10px #00ffff;
+      border-radius: 5px;
+      padding: 10px 0;
+      min-width: 150px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 8px 15px;
+      color: #00ffff;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #111;
+      box-shadow: 0 0 10px #ff00ff inset;
+    }
+
+    .dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .intro {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(180deg, #111, #0d0d0d);
+      box-shadow: 0 0 20px #0ff inset;
+    }
+
+    .intro h1 {
+      font-size: 2.8em;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .intro p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 20px auto;
+      color: #ccc;
+    }
+
+    .recomendados {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .recomendados h2 {
+      color: #ff00ff;
+      text-shadow: 0 0 10px #ff00ff;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .juego {
+      background-color: #1a1a1a;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ffff;
+      padding: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .juego:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff00ff;
+    }
+
+    .juego img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .juego h3 {
+      color: #0ff;
+      margin: 10px 0 5px;
+    }
+
+    .juego p {
+      color: #ccc;
+      font-size: 0.9em;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 15px;
+      color: #888;
+      font-size: 0.9em;
+      border-top: 1px solid #222;
+      margin-top: 50px;
+    }
+
