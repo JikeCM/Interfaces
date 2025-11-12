@@ -1,33 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title th:text="${juego.name}">Detalle del Juego</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet" th:href="@{/css/estilo_neon.css}">
 </head>
+
 <body>
 
-<header>
+    <header>
+        <div class="logo">🎮 GameZone</div>
+
+        <!-- Botón de menú hamburguesa -->
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+        <nav>
+            <a th:href="@{/}">Inicio</a>
+            <a th:href="@{/noticias}">Noticias</a>
+            <div class="lista">
+                <a href="#">Plataformas ▼</a>
+                <div class="contenido-lista">
+                    <a href="#">PC</a>
+                    <a href="#">PlayStation</a>
+                    <a href="#">Xbox</a>
+                    <a href="#">Nintendo</a>
+                </div>
+            </div>
+            <div class="lista">
+                <a href="#">Categorías ▼</a>
+                <div class="contenido-lista">
+                    <a href="#">Acción</a>
+                    <a href="#">RPG</a>
+                    <a href="#">Indie</a>
+                    <a href="#">Estrategia</a>
+                </div>
+            </div>
+            <a th:href="@{/contacto}">Contacto</a>
+            <a th:href="@{/buscador}">Buscador</a>
+        </nav>
+    </header>
+
     <h1 th:text="${juego.name}"></h1>
-</header>
 
-<section>
-    <p><strong>Plataforma:</strong> <span th:text="${juego.platform}"></span></p>
-    <p><strong>Año:</strong> <span th:text="${juego.year}"></span></p>
-    <p><strong>Género:</strong> <span th:text="${juego.genre}"></span></p>
-    <p><strong>Publisher:</strong> <span th:text="${juego.publisher}"></span></p>
-    <p><strong>Ventas NA:</strong> <span th:text="${juego.naSales}"></span></p>
-    <p><strong>Ventas EU:</strong> <span th:text="${juego.euSales}"></span></p>
-    <p><strong>Ventas JP:</strong> <span th:text="${juego.jpSales}"></span></p>
-    <p><strong>Ventas Globales:</strong> <span th:text="${juego.globalSales}"></span></p>
-</section>
+    <section>
+        <p><strong>Plataforma:</strong> <span th:text="${juego.platform}"></span></p>
+        <p><strong>Año:</strong> <span th:text="${juego.year}"></span></p>
+        <p><strong>Género:</strong> <span th:text="${juego.genre}"></span></p>
+        <p><strong>Publisher:</strong> <span th:text="${juego.publisher}"></span></p>
+        <p><strong>Ventas NA:</strong> <span th:text="${juego.naSales}"></span></p>
+        <p><strong>Ventas EU:</strong> <span th:text="${juego.euSales}"></span></p>
+        <p><strong>Ventas JP:</strong> <span th:text="${juego.jpSales}"></span></p>
+        <p><strong>Ventas Globales:</strong> <span th:text="${juego.globalSales}"></span></p>
+    </section>
 
-<a th:href="@{/buscador}">⬅ Volver al buscador</a>
-<a th:href="@{/}">🏠 Inicio</a>
-
-<footer>
-    © 2025 GameZone - Todos los derechos reservados.
-</footer>
+    <footer>
+        © 2025 GameZone - Todos los derechos reservados.
+    </footer>
 
 </body>
+
 </html>
