@@ -27,6 +27,6 @@ public class JuegoControlador {
     public String detalleJuego(@org.springframework.web.bind.annotation.PathVariable Integer rank, Model model) {
         var juego = juegoService.buscarPorRank(rank);
         model.addAttribute("juego", juego);
-        return "detalle"; // nombre del HTML que mostrarás
+        return "detalles"; // nombre del HTML que mostrarás
     }
 }
