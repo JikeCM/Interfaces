@@ -291,7 +291,9 @@
         <tbody>
             <tr th:each="j : ${juegos}">
                 <td th:text="${j.rank}"></td>
-                <td th:text="${j.name}"></td>
+                <td>
+                    <a th:href="@{/juego/{rank}(rank=${j.rank})}" th:text="${j.name}"></a>
+                </td>
                 <td th:text="${j.platform}"></td>
                 <td th:text="${j.year}"></td>
                 <td th:text="${j.genre}"></td>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${juego.name}">Detalle del Juego</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<header>
+    <h1 th:text="${juego.name}"></h1>
+</header>
+
+<section>
+    <p><strong>Plataforma:</strong> <span th:text="${juego.platform}"></span></p>
+    <p><strong>Año:</strong> <span th:text="${juego.year}"></span></p>
+    <p><strong>Género:</strong> <span th:text="${juego.genre}"></span></p>
+    <p><strong>Publisher:</strong> <span th:text="${juego.publisher}"></span></p>
+    <p><strong>Ventas NA:</strong> <span th:text="${juego.naSales}"></span></p>
+    <p><strong>Ventas EU:</strong> <span th:text="${juego.euSales}"></span></p>
+    <p><strong>Ventas JP:</strong> <span th:text="${juego.jpSales}"></span></p>
+    <p><strong>Ventas Globales:</strong> <span th:text="${juego.globalSales}"></span></p>
+</section>
+
+<a th:href="@{/buscador}">⬅ Volver al buscador</a>
+<a th:href="@{/}">🏠 Inicio</a>
+
+<footer>
+    © 2025 GameZone - Todos los derechos reservados.
+</footer>
+
+</body>
+</html>

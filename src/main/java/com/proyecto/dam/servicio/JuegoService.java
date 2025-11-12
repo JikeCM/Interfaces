@@ -22,4 +22,9 @@ public class JuegoService {
         }
         return juegoRepositorio.buscarPorFiltroNative(filtro);
     }
+
+    public Juego buscarPorRank(Integer rank) {
+    return juegoRepositorio.findById(rank)
+            .orElseThrow(() -> new IllegalArgumentException("Juego no encontrado con rank: " + rank));
+}
 }
