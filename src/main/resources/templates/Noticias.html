@@ -156,7 +156,7 @@
             transform: translateY(0);
         }
 
-        /* --- Noticias --- */
+        /* --- SECCIÓN NOTICIAS --- */
         .noticias-section {
             max-width: 1000px;
             margin: 50px auto;
@@ -167,10 +167,11 @@
             text-align: center;
             font-size: 2.5em;
             color: #00ffff;
-            text-shadow: 0 0 10px #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff;
             margin-bottom: 40px;
         }
 
+        /* --- CADA NOTICIA --- */
         .noticia {
             display: flex;
             gap: 20px;
@@ -184,15 +185,23 @@
 
         .noticia:hover {
             transform: scale(1.02);
-            box-shadow: 0 0 20px #ff00ff;
+            box-shadow: 0 0 20px #ff00ff, 0 0 15px #0ff inset;
         }
 
+        /* Imagen de noticia */
         .noticia img {
             width: 300px;
             height: 200px;
             object-fit: cover;
+            border-right: 2px solid #00ffff;
+            transition: transform 0.3s;
         }
 
+        .noticia img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contenido de noticia */
         .noticia .contenido {
             padding: 20px;
             display: flex;
@@ -200,29 +209,43 @@
             justify-content: center;
         }
 
+        /* Título */
         .noticia .contenido h2 {
             margin: 0 0 10px 0;
             color: #0ff;
+            text-shadow: 0 0 8px #0ff, 0 0 15px #ff00ff;
+            font-size: 1.8em;
         }
 
+        /* Descripción */
         .noticia .contenido p {
             margin: 0 0 15px 0;
             color: #ccc;
+            line-height: 1.4;
         }
 
+        /* Enlace "Leer más" */
         .noticia .contenido a {
-            align-self: flex-start;
+            display: inline-block;
             padding: 8px 15px;
             background-color: #00ffff;
+            color: #000;
+            /* texto negro para contraste */
             border-radius: 5px;
             font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 0 5px #0ff;
+            transition: all 0.3s ease;
         }
 
         .noticia .contenido a:hover {
             background-color: #ff00ff;
             color: #fff;
+            box-shadow: 0 0 15px #ff00ff, 0 0 10px #0ff inset;
         }
 
+        /* --- RESPONSIVE --- */
         @media (max-width: 800px) {
             .noticia {
                 flex-direction: column;
@@ -232,10 +255,13 @@
             .noticia img {
                 width: 90%;
                 height: auto;
+                border-right: none;
+                border-bottom: 2px solid #00ffff;
             }
 
-            .noticia .contenido a {
-                align-self: center;
+            .noticia .contenido {
+                padding: 15px;
+                text-align: center;
             }
         }
     </style>
@@ -284,7 +310,7 @@
             <div class="contenido">
                 <h2 th:text="${n.titulo}"></h2>
                 <p th:text="${n.descripcion}"></p>
-                <a th:href="${n.enlace}" target="_blank"><p>Leer más</p></a>
+                <a th:href="${n.enlace}" target="_blank">Leer más</a>
             </div>
         </div>
 
