@@ -3,7 +3,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d0d0d;
       color: #e0e0e0;
-      background-image: url('Imagenes/fondo_negro.jpg');
+      background-image: url('src\\main\\resources\\static\\imagenes\\fondo_negro.jpg');
       background-size: cover;
       background-attachment: fixed;
     }
