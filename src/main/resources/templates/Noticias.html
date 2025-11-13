@@ -103,6 +103,10 @@
             box-shadow: 0 0 10px #ff00ff inset;
         }
 
+        .contenido-lista p {
+            color: #000000;
+        }
+
         .lista:hover .contenido-lista {
             opacity: 1;
             visibility: visible;
@@ -280,7 +284,7 @@
             <div class="contenido">
                 <h2 th:text="${n.titulo}"></h2>
                 <p th:text="${n.descripcion}"></p>
-                <a th:href="${n.enlace}" target="_blank">Leer más</a>
+                <a th:href="${n.enlace}" target="_blank"><p>Leer más</p></a>
             </div>
         </div>
 
