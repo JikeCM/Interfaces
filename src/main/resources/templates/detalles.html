@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
   <title th:text="${juego.name}">Detalle del Juego</title>
   <link rel="stylesheet" th:href="@{/css/estilo_neon_detalles.css}">
 </head>
+
 <body>
 
   <header>
-    <div class="logo">🎮 GameZone</div>
+    <div class="logo">
+      <a th:href="@{/}"> 🎮 GameZone </a>
+    </div>
 
     <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
     <nav>
-      <a th:href="@{/}">Inicio</a>
       <a th:href="@{/noticias}">Noticias</a>
       <div class="lista">
         <a href="#">Plataformas ▼</a>
@@ -82,4 +85,5 @@
   </script>
 
 </body>
+
 </html>

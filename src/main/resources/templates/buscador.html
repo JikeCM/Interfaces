@@ -230,13 +230,14 @@
 <body>
 
     <header>
-        <div class="logo">🎮 GameZone</div>
+        <div class="logo">
+            <a th:href="@{/}"> 🎮 GameZone </a>
+        </div>
 
         <!-- Botón de menú hamburguesa -->
         <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
         <nav>
-            <a th:href="@{/}">Inicio</a>
             <a th:href="@{/noticias}">Noticias</a>
             <div class="lista">
                 <a href="#">Plataformas ▼</a>
@@ -306,8 +307,6 @@
             </tr>
         </tbody>
     </table>
-
-    <a th:href="@{/}">Volver al inicio</a>
 
     <footer>
         © 2025 GameZone - Todos los derechos reservados.
